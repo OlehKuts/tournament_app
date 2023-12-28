@@ -1,0 +1,335 @@
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .tableLine {
+    display: grid;
+    grid-template-columns: 40px 270px 50px 50px 50px 100px 100px 40px;
+    border: 1px solid gray;
+    justify-content: center;
+    padding: 3px;
+    width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 1px 1px;
+  }
+  .tableCell {
+    border-right: 0.5px solid dimgray;
+    padding: 2px;
+  }
+  .matchCell {
+    margin-top: 6px;
+    padding: 0px 5px;
+  }
+  .matchLine {
+    display: grid;
+    grid-template-columns: 50px 260px 35px 10px 35px 260px 50px;
+    border: 1px solid gray;
+    justify-content: center;
+    padding: 3px;
+    width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 0 5px 1px;
+    height: 38px;
+  }
+  .form_tour_line {
+    display: flex;
+    justify-content: center;
+  }
+  #tourCell {
+    width: 100px;
+    text-align: start;
+  }
+  .grayBckg {
+    background-color: #e6f7ff;
+  }
+  .yellowBckg {
+    background-color: seashell;
+  }
+  .ghostWhiteBckg {
+    background-color: whitesmoke;
+  }
+  :root {
+    --clr: #3d3d3d;
+  }
+  .icon {
+    font-size: 10em;
+    color: #005a9c;
+  }
+  .navigation {
+    margin: 35px auto 0 auto;
+    width: 270px;
+    height: 74px;
+    background-color: var(--clr);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding-right: 50px;
+    padding-left: 15px;
+    margin-bottom: 30px;
+  }
+  .navigation ul {
+    display: flex;
+    width: 350px;
+  }
+  .navigation ul li {
+    position: relative;
+    list-style-type: none;
+    width: 70px;
+    height: 70px;
+    z-index: 1;
+  }
+  .navigation ul li a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    color: whitesmoke;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+  }
+  .navigation ul li a .icon {
+    position: relative;
+    display: block;
+    line-height: 75px;
+    font-size: 1.75em;
+    text-align: center;
+    transition: 0.5s;
+    padding-left: 4px;
+  }
+  .navigation ul li.activeNavbarLi a .icon {
+    transform: translateY(-36px);
+  }
+  .navigation ul li a .navbarText {
+    position: absolute;
+    color: whitesmoke;
+    font-weight: 400;
+    font-size: 0.75em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  .navigation ul li.activeNavbarLi a .navbarText {
+    transform: translateY(10px);
+    opacity: 1;
+    text-align: center;
+  }
+  .indicator {
+    position: absolute;
+    top: -50%;
+    width: 70px;
+    height: 70px;
+    background-color: #ffea00;
+    border-radius: 50%;
+    border: 2px solid whitesmoke;
+    transition: 0.5s;
+  }
+  .indicator::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -22px;
+    border-top-right-radius: 20px;
+    width: 23px;
+    height: 22px;
+    background: transparent;
+  
+    box-shadow: 0 -10px 0 0 whitesmoke;
+  }
+  .indicator::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -22px;
+    border-top-left-radius: 20px;
+    width: 23px;
+    height: 22px;
+    background: transparent;
+    box-shadow: 0 -10px 0 0 whitesmoke;
+  }
+  .navigation ul li:nth-child(1).activeNavbarLi ~ .indicator {
+    transform: translateX(calc(70px * 0));
+  }
+  .navigation ul li:nth-child(2).activeNavbarLi ~ .indicator {
+    transform: translateX(calc(70px * 1));
+  }
+  .navigation ul li:nth-child(3).activeNavbarLi ~ .indicator {
+    transform: translateX(calc(70px * 2));
+  }
+  .navigation ul li:nth-child(4).activeNavbarLi ~ .indicator {
+    transform: translateX(calc(70px * 3));
+  }
+  .navigation ul li:nth-child(5).activeNavbarLi ~ .indicator {
+    transform: translateX(calc(70px * 4));
+  }
+  hr {
+    margin: 20px auto;
+    width: 80%;
+  }
+  /* button input select*/
+  button,
+  input,
+  select {
+    margin: auto 0.5rem;
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    width: 10rem;
+    border-radius: 0.4rem;
+    transition-duration: 0.4s;
+    size: 1.2rem;
+    height: 2.3rem;
+    margin: 0.25rem;
+    cursor: pointer;
+  }
+  select,
+  button {
+    height: 41px;
+    text-align: center;
+  }
+  button:hover,
+  select:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+  input:hover {
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
+  .matchInput {
+    width: 30px;
+    height: 20px;
+  }
+  .number_inputs {
+    width: 50px;
+    text-align: center;
+    padding-right: 0;
+  }
+  .removeItem {
+    width: 40px;
+    color: red;
+  }
+  .editMatchBtn {
+    color: green;
+    width: 40px;
+  }
+  .matchRemove {
+    width: 30px;
+    height: 30px;
+  }
+  .longInput {
+    width: 500px;
+  }
+  .extraLongInput {
+    width: 680px;
+  }
+  .submitBtnLine {
+    margin-top: 15px;
+  }
+  /* modal */
+  .modal {
+    height: 100vh;
+    width: 220vh;
+    background-color: rgb(0, 0, 0, 0.4);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  .modal.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modal_content {
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+    transform: scale(0.5);
+    transition: 0.4s all;
+  }
+  .modal_content.active {
+    transform: scale(1);
+  }
+  /*  */
+  #arrowIcon {
+    color: green;
+  }
+  /* input checkbox */
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #2196f3;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
