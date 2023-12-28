@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tournament_app/static/css/main.5f22cabb.css",
+    "main.js": "/tournament_app/static/js/main.aea8f07c.js",
+    "index.html": "/tournament_app/index.html",
+    "main.5f22cabb.css.map": "/tournament_app/static/css/main.5f22cabb.css.map",
+    "main.aea8f07c.js.map": "/tournament_app/static/js/main.aea8f07c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f22cabb.css",
+    "static/js/main.aea8f07c.js"
+  ]
+}
