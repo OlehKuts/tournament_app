@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 export const ImportPage = ({
   exportData,
   importInitialData,
@@ -23,7 +24,7 @@ export const ImportPage = ({
           />
           <div className="submitBtnLine">
             <button onClick={() => importInitialData(importedData)}>
-              Підтвердити імпорт
+              <Link to={"/"}>Підтвердити імпорт</Link>
             </button>
             <button onClick={() => setShowImport(false)}>Відмінити</button>
           </div>

@@ -1,6 +1,7 @@
 import "./styles.css";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { defaultTeam, initTeams } from "./constants/initialData";
+import { defaultTeam } from "./constants/initialData";
 import { MatchItem } from "./components/MatchItem";
 import { TournamentTable } from "./components/TournamentTable";
 import { muteTeams, muteTeamsByRemovingMatch } from "./utils/utils";
@@ -15,7 +16,6 @@ import { useMemo } from "react";
 export const App = () => {
   const [teams, setTeams] = useLocalStorage("teams_test", []);
   const [matches, setMatches] = useLocalStorage("matches_test", []);
-  const [showMain, setShowMain] = useState([true, false, false]);
   const [showImport, setShowImport] = useState(false);
   const [tournamentName, setTournamentName] = useLocalStorage(
     "tournamentName_test",
@@ -31,7 +31,6 @@ export const App = () => {
     setTeams(impData.teams);
     setMatches(impData.matches);
     alert("Дані успішно імпортовано");
-    setShowMain([true, false, false]);
   };
   const exportData = () => {
     const exData = { teams: teams, matches: matches };
@@ -39,7 +38,6 @@ export const App = () => {
     alert(
       "Дані про поточний турнір скопійовано в буфер обіну. Збережіть їх в текстовому документі, щоб використати пізніше."
     );
-    setShowMain([true, false, false]);
   };
   const addMatch = (newMatch) => {
     setTeams(muteTeams(newMatch, teams));
@@ -47,7 +45,6 @@ export const App = () => {
       const newMatches = [...prev, newMatch];
       return newMatches.sort((a, b) => Number(a.tour) - Number(b.tour));
     });
-    setShowMain([true, false, false]);
   };
   const removeMatch = (matchId) => {
     const selectedMatch = matches.find((item) => item.id === matchId);
@@ -74,14 +71,9 @@ export const App = () => {
       isAdult: newTeam.isAdult === "false" ? false : true,
     };
     setTeams((prev) => [...prev, finalTeam]);
-    setShowMain([true, false, false]);
   };
   const setTournament = (tName) => {
     setTournamentName(tName);
-    setShowMain([true, false, false]);
-  };
-  const toggleMain = (arr) => {
-    setShowMain(arr);
   };
   const qualifiedTeams = useMemo(() => {
     const adultTeams = [...teams].filter((item) => item.isAdult);
@@ -96,12 +88,13 @@ export const App = () => {
     console.log(displayedMatches, teams);
   }, [matches, teams]);
 
-  return (
+  return (<>
+  <Router>
     <div className="App">
-      <Header toggleMain={toggleMain} showMain={showMain} />
-
-      {showMain[0] ? (
-        <>
+      <Header />
+      <Routes>
+        <Route path="/" element={
+          <>
           <h3>{tournamentName}</h3>
           <hr />
           <h3>Турнірна таблиця</h3>
@@ -135,25 +128,29 @@ export const App = () => {
             )}
           </div>
         </>
-      ) : null}
-      {showMain[1] ? (
-        <Settings
-          onSetTournamentName={setTournament}
-          addTeam={addTeam}
-          addMatch={addMatch}
-          teams={teams}
-          tournamentNameSaved={tournamentName}
-        />
-      ) : null}
-      {showMain[2] ? (
-        <ImportPage
-          setShowImport={setShowImport}
-          exportData={exportData}
-          importInitialData={importInitialData}
-          showImport={showImport}
-        />
-      ) : null}
+        }></Route>
+      
+      <Route path="/settings" element={
+         <Settings
+         onSetTournamentName={setTournament}
+         addTeam={addTeam}
+         addMatch={addMatch}
+         teams={teams}
+         tournamentNameSaved={tournamentName}
+       />
+      }></Route>
+       <Route path="/importPage" element={
+         <ImportPage
+         setShowImport={setShowImport}
+         exportData={exportData}
+         importInitialData={importInitialData}
+         showImport={showImport}
+       />
+       }></Route>
+      </Routes>
     </div>
+    </Router>
+    </>
   );
 };
 

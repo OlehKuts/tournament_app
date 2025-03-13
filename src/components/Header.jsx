@@ -1,40 +1,46 @@
-export const Header = ({ toggleMain, showMain }) => {
+import { NavLink } from "react-router-dom";
+
+export const Header = () => {
   return (
     <div className="navigation">
       <ul>
-        <li
-          onClick={() => toggleMain([true, false, false])}
-          className={`list ${showMain[0] ? "activeNavbarLi" : ""}`}
-        >
-          <a href="#" title="Головна">
+        <li>
+          <NavLink
+            to="/"
+            end
+            title="Головна"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
             <span className="icon">
               <ion-icon name="list-circle-outline"></ion-icon>
             </span>
             <span className="navbarText">Головна</span>
-          </a>
+          </NavLink>
         </li>
 
-        <li
-          onClick={() => toggleMain([false, true, false])}
-          className={`list ${showMain[1] ? "activeNavbarLi" : ""}`}
-        >
-          <a href="#" title="Налаштування">
+        <li>
+          <NavLink
+            to="/settings"
+            title="Налаштування"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
             <span className="icon">
               <ion-icon name="settings-outline"></ion-icon>
             </span>
             <span className="navbarText">Налаштування</span>
-          </a>
+          </NavLink>
         </li>
-        <li
-          onClick={() => toggleMain([false, false, true])}
-          className={`list ${showMain[2] ? "activeNavbarLi" : ""}`}
-        >
-          <a href="#" title="Імпорт/експорт даних">
+        <li>
+          <NavLink
+            to="/importPage"
+            title="Імпорт/експорт даних"
+            className={({ isActive }) => (isActive ? "active-link" : "")}
+          >
             <span className="icon">
               <ion-icon name="cloud-download-outline"></ion-icon>
             </span>
             <span className="navbarText">Дані</span>
-          </a>
+          </NavLink>
         </li>
         <div className="indicator"></div>
       </ul>
