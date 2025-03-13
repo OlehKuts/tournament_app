@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tournament_app/static/css/main.5f22cabb.css",
-    "main.js": "/tournament_app/static/js/main.aea8f07c.js",
+    "main.css": "/tournament_app/static/css/main.5b465396.css",
+    "main.js": "/tournament_app/static/js/main.153d28c1.js",
     "index.html": "/tournament_app/index.html",
-    "main.5f22cabb.css.map": "/tournament_app/static/css/main.5f22cabb.css.map",
-    "main.aea8f07c.js.map": "/tournament_app/static/js/main.aea8f07c.js.map"
+    "main.5b465396.css.map": "/tournament_app/static/css/main.5b465396.css.map",
+    "main.153d28c1.js.map": "/tournament_app/static/js/main.153d28c1.js.map"
   },
   "entrypoints": [
-    "static/css/main.5f22cabb.css",
-    "static/js/main.aea8f07c.js"
+    "static/css/main.5b465396.css",
+    "static/js/main.153d28c1.js"
   ]
 }
