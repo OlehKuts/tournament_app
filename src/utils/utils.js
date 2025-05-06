@@ -79,12 +79,12 @@ export const uniteInTour = (arr) => {
     return true;
   }
   function compareNumbers(a, b) {
-    if (b.wins !== a.wins) {
-      return b.wins - a.wins;
-    } else if (b.points !== a.points) {
+    if (b.points !== a.points) {
       return b.points - a.points;
+    } else if (b.wins !== a.wins) {
+      return b.wins - a.wins;
     } else {
-      return b.winSets - b.lostSets - (a.winSets - a.lostSets);
+      return (b.winSets - b.lostSets) - (a.winSets - a.lostSets);
     }
   }
   const getPoints = (sets, rivalSets) => {

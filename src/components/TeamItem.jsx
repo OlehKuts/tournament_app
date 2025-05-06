@@ -32,8 +32,8 @@ export const TeamItem = ({ team, idx, isQualified, onRemove }) => {
         ) : null}
       </div>
       <div className="tableCell">{games || gms}</div>
-      <div className="tableCell">{wins}</div>
       <div className="tableCell">{points}</div>
+      <div className="tableCell">{wins}</div>
       <div className="tableCell">{winsLosses}</div>
       <div className="tableCell">{sets}</div>
       <div>
