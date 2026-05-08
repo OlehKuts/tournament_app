@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# 🏐 Tournament App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Tournament App** is a specialized web application designed to track match results and manage league tables for regional volleyball competitions. The application has been successfully utilized in production for two full regular seasons, proving its reliability and practical value.
 
-## Available Scripts
+**🔗 Live Demo:** [View Project](https://olehkuts.github.io/tournament_app/)
 
-In the project directory, you can run:
+## 🎯 Project Overview
 
-### `npm start`
+This project was developed to solve the logistical challenge of managing regional sports data. It automates the calculation of league standings based on specific volleyball tie-breaking criteria (points, matches won, set ratios, etc.), moving away from manual spreadsheets to a dedicated digital tool.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ✨ Key Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Comprehensive Tournament Management:** Add, edit, or remove teams and match results on the fly.
+- **Dynamic Standings:** Automatically calculates the league table according to official volleyball priority rules.
+- **Visual Progression:** Displays matches sorted by rounds (stages) for better readability.
+- **JSON Data Portability:** Built-in Export/Import functionality allowing users to save the entire tournament state as a JSON file and load it on any other device or browser.
+- **Persistent Storage:** Uses `LocalStorage` to ensure data remains available even after refreshing the page or closing the browser.
+- **Final Stage Tracking:** Visual indicators to show which teams qualify for the playoff/final phase.
 
-### `npm test`
+## 🛠 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** (Functional Components)
+- **Custom Hooks** (For centralized business logic and data management)
+- **React Router DOM** (Multi-page navigation)
+- **Copy-to-clipboard** (Enhanced UX for data sharing)
+- **Local Storage API** (Persistent data storage)
 
-### `npm run build`
+## 📸 Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+| Match Results (Stage View)                   | Final Season Standings                               |
+| :------------------------------------------- | :--------------------------------------------------- |
+| ![Stage Results](assets/stage_1_results.png) | ![Final Table](assets/table_final_season_result.jpg) |
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Application Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Standings & Matches:** The main dashboard showing the live table and a chronological list of matches with editing/deletion capabilities.
+- **Settings:** The administrative hub to change the tournament name, manage the team list, and create new matches.
+- **Data Import/Export:** A dedicated utility for backing up tournament data or migrating results between different environments.
 
-### `npm run eject`
+## 🚀 Local Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd tournament_app
+   ```
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+4. **Start the development server:**
+   ```bash
+   npm start
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+_Developed by [Oleh Kuts](https://github.com/OlehKuts)_

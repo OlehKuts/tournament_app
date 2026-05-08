@@ -8,11 +8,13 @@ export const Header = () => {
           <NavLink
             to="/"
             end
-            title="Головна"
             className={({ isActive }) => (isActive ? "active-link" : "")}
           >
             <span className="icon">
-              <ion-icon name="list-circle-outline"></ion-icon>
+              <ion-icon
+                name="list-circle-outline"
+                title="Таблиця і матчі"
+              ></ion-icon>
             </span>
             <span className="navbarText">Головна</span>
           </NavLink>
