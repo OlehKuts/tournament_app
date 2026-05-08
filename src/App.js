@@ -1,5 +1,5 @@
 import "./styles.css";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, HashRouter as Router } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { defaultTeam } from "./constants/initialData";
 import { MatchItem } from "./components/MatchItem";
@@ -19,7 +19,7 @@ export const App = () => {
   const [showImport, setShowImport] = useState(false);
   const [tournamentName, setTournamentName] = useLocalStorage(
     "tournamentName_test",
-    ""
+    "",
   );
   const [copiedToClipboard] = useCopyToClipboard();
   const importInitialData = (importedData) => {
@@ -36,7 +36,7 @@ export const App = () => {
     const exData = { teams: teams, matches: matches };
     copiedToClipboard(JSON.stringify(exData));
     alert(
-      "Дані про поточний турнір скопійовано в буфер обіну. Збережіть їх в текстовому документі, щоб використати пізніше."
+      "Дані про поточний турнір скопійовано в буфер обіну. Збережіть їх в текстовому документі, щоб використати пізніше.",
     );
   };
   const addMatch = (newMatch) => {
@@ -88,70 +88,78 @@ export const App = () => {
     console.log(displayedMatches, teams);
   }, [matches, teams]);
 
-  return (<>
-  <Router>
-    <div className="App">
-      <Header />
-      <Routes>
-        <Route path="/" element={
-          <>
-          <h3>{tournamentName}</h3>
-          <hr />
-          <h3>Турнірна таблиця</h3>
-          <TournamentTable
-            teams={teams}
-            onRemove={removeTeam}
-            qualifiedTeams={qualifiedTeams}
-          />
-          <div className="matches">
-            <h3>Матчі</h3>
-            {matches.length ? (
-              <>
-                {" "}
-                {displayedMatches.map((tour, idx) => (
-                  <div key={idx}>
-                    <h5>Тур - {tour[0]}</h5>
-                    {tour[1].map((item, itemIdx) => (
-                      <MatchItem
-                        match={item}
-                        key={item.id}
-                        onRemove={removeMatch}
-                        idx={itemIdx}
-                        onReplaceMatch={replaceMatch}
-                      />
-                    ))}
+  return (
+    <>
+      <Router>
+        <div className="App">
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <h3>{tournamentName}</h3>
+                  <hr />
+                  <h3>Турнірна таблиця</h3>
+                  <TournamentTable
+                    teams={teams}
+                    onRemove={removeTeam}
+                    qualifiedTeams={qualifiedTeams}
+                  />
+                  <div className="matches">
+                    <h3>Матчі</h3>
+                    {matches.length ? (
+                      <>
+                        {" "}
+                        {displayedMatches.map((tour, idx) => (
+                          <div key={idx}>
+                            <h5>Тур - {tour[0]}</h5>
+                            {tour[1].map((item, itemIdx) => (
+                              <MatchItem
+                                match={item}
+                                key={item.id}
+                                onRemove={removeMatch}
+                                idx={itemIdx}
+                                onReplaceMatch={replaceMatch}
+                              />
+                            ))}
+                          </div>
+                        ))}
+                      </>
+                    ) : (
+                      <h5>На даний момент не зіграно жодного матчу</h5>
+                    )}
                   </div>
-                ))}
-              </>
-            ) : (
-              <h5>На даний момент не зіграно жодного матчу</h5>
-            )}
-          </div>
-        </>
-        }></Route>
-      
-      <Route path="/settings" element={
-         <Settings
-         onSetTournamentName={setTournament}
-         addTeam={addTeam}
-         addMatch={addMatch}
-         teams={teams}
-         tournamentNameSaved={tournamentName}
-       />
-      }></Route>
-       <Route path="/importPage" element={
-         <ImportPage
-         setShowImport={setShowImport}
-         exportData={exportData}
-         importInitialData={importInitialData}
-         showImport={showImport}
-       />
-       }></Route>
-      </Routes>
-    </div>
-    </Router>
+                </>
+              }
+            ></Route>
+
+            <Route
+              path="/settings"
+              element={
+                <Settings
+                  onSetTournamentName={setTournament}
+                  addTeam={addTeam}
+                  addMatch={addMatch}
+                  teams={teams}
+                  tournamentNameSaved={tournamentName}
+                />
+              }
+            ></Route>
+            <Route
+              path="/importPage"
+              element={
+                <ImportPage
+                  setShowImport={setShowImport}
+                  exportData={exportData}
+                  importInitialData={importInitialData}
+                  showImport={showImport}
+                />
+              }
+            ></Route>
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 };
-
-
